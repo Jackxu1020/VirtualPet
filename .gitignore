@@ -10,6 +10,9 @@
 .idea/
 *.swp
 
+# Executable (too large for GitHub)
+*.exe
+
 # OS files
 .DS_Store
 Thumbs.db
