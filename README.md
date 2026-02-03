@@ -1,64 +1,69 @@
 # Virtual Pet Game
 
-Welcome to **Virtual Pet**, a Java-based desktop game where you take care of an adorable animal companion! Your job is to keep your pet healthy, happy, well-fed, and well-rested by feeding it, playing with it, taking it to the vet, and more. The pet's mood changes dynamically, and neglect can lead to sickness or even death—so stay attentive!
+A Java desktop game where you adopt and care for a virtual pet. Keep your pet healthy, happy, well-fed, and well-rested — or face the consequences of neglect.
 
-##  Features
+## Features
 
-- Choose from three pets: **Dog**, **Duck**, or **Sheep**—each with unique decay rates
-- Manage pet stats: **Health**, **Happiness**, **Sleep**, and **Fullness**
-- Feed your pet and give it gifts from your inventory
-- Take your pet to the vet or exercise with it to boost health
-- Built-in cooldowns and timed effects
-- Background music selection and volume control
-- Save/load system for up to 3 save slots
-- Parental controls with password(You will set a password upon first entry), playtime restriction, and pet revival
-- Tutorial screen for new users
+- **3 pets to choose from**: Dog, Duck, and Sheep, each with unique stat decay rates
+- **Stat management**: Health, Happiness, Sleep, and Fullness
+- **Interactions**: Feed, give gifts, visit the vet, exercise, and more
+- **Inventory system**: Collect and use items on your pet
+- **Save/Load**: Up to 3 save slots with JSON-based persistence
+- **Parental controls**: Password-protected settings with playtime restrictions and pet revival
+- **Music & settings**: Background music selection with volume control
+- **Tutorial**: Built-in guide for new players
 
----
+## Requirements
 
-##  Required Libraries & Tools
+- **Java JDK 17+** (developed with JDK 24)
+- **Gson 2.10.1** (included in `Code and Test/gson-2.10.1.jar`)
 
-| Library / Tool         | Version            | Purpose                              |
-|------------------------|--------------------|--------------------------------------|
-| Java JDK               | 24                | Core language and compiler           |
-| Gson                   | 2.10.1            | JSON serialization/deserialization   |
-| JUnit Jupiter          | 5.8.2             | Unit testing                         |
-| javax.swing            | Built-in (JDK)    | GUI components                       |
+## Project Structure
 
----
-
-##  Build Instructions(option)
-
-1. **Install Java Development Kit (JDK 24)**
-   - Download: https://www.oracle.com/java/technologies/javase-downloads.html
-
-2. **Install Gson**
-   - Download `gson-2.10.1jar` or later from https://github.com/google/gson
-   - Place it in your project folder
-   
-3. **Set up the project**
-   - Open the project in any Java development IDE(e.g. Eclipse)
-   - Place all `.java` files in the same folder
-   - Ensure any resource folders are correctly placed
-   
-4. **Install JUnit 5**
-   - Right-click project > Build Path > Add Library > JUnit > JUnit 5
-   - Ensure all `.jar` files in the same folder
-   
-5. **Compile the source code**
-   - Open terminal
-   - Navigate to the root of your project
-   - Run the following command
-```bash
-javac -cp "gson-2.10.1.jar;lib/*;out" -d out src/*.java
-java -cp "gson-2.10.1.jar;out" Main
 ```
-## run
-run the VirtualPets.exe with resources folder
+├── Code and Test/       # Java source files and tests
+│   ├── Main.java        # Entry point
+│   ├── VirtualPet.java  # Pet logic and stat management
+│   ├── Player.java      # Player and parental controls
+│   ├── Inventory.java   # Inventory system
+│   ├── GamePlayScreen.java
+│   ├── MainMenuScreen.java
+│   ├── *Test.java       # JUnit 5 tests
+│   └── gson-2.10.1.jar  # Gson dependency
+├── resources/           # Images and music
+│   ├── dog/             # Dog pet sprites
+│   ├── duck/            # Duck pet sprites
+│   ├── sheep/           # Sheep pet sprites
+│   └── *.wav            # Background music
+├── JavaDoc/             # Generated API documentation
+└── Testing Documentation ver3.pdf
+```
 
+## How to Run
 
-##  Resources & Attributions
-- Pet images(dog, duck, sheep) were sourced from https://www.spriters-resource.com/
-- Background musics(music1, music2, music3) were sourced from https://pixabay.com/
-- Background image were sourced from https://www.freepik.com/
-- Icons used in GUI were sourced from https://www.flaticon.com/
+**Compile** (from `Code and Test/` directory):
+
+```bash
+cd "Code and Test"
+javac -cp ".:gson-2.10.1.jar" Main.java VirtualPet.java Player.java Inventory.java GamePlayScreen.java GameState.java InventoryScreen.java LoadGameScreen.java MainMenuScreen.java MusicPlayer.java ParentalControlsScreen.java PetType.java PlayerInventory.java RuntimeTypeAdapterFactory.java SaveLoadManager.java SelectPetScreen.java SettingScreen.java TutorialScreen.java
+```
+
+**Run** (from the project root directory, so `resources/` can be found):
+
+```bash
+cd ..
+java -cp "Code and Test:Code and Test/gson-2.10.1.jar" Main
+```
+
+> **Note**: On Windows, replace `:` with `;` in the classpath.
+
+## Running Tests
+
+Tests require JUnit Jupiter 5.8.2. If using an IDE like IntelliJ or Eclipse, add JUnit 5 to your build path and run the `*Test.java` files directly.
+
+## Attributions
+
+- Pet sprites (Dog, Duck, Sheep) — [The Spriters Resource](https://www.spriters-resource.com/)
+- Background music — [Pixabay](https://pixabay.com/)
+- Background image — [Freepik](https://www.freepik.com/)
+- GUI icons — [Flaticon](https://www.flaticon.com/)
